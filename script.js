@@ -1,10 +1,10 @@
 // put your globals here - hint: select elements from the HTML
-let messageInput = document.getElementById("text-area");
+const messageInput = document.getElementById("text-area");
 
 const wordCountBtn = document.getElementById("countBtn");
 const wordCount = document.getElementById("wordCountInput");
 
-let findWord = document.getElementById("findWordInput");
+const findWord = document.getElementById("findWordInput");
 const findWordBtn = document.getElementById("findBtn");
 const wordFoundCount = document.getElementById("wordFoundInput");
 
@@ -18,35 +18,25 @@ function countWords() {
   let words = messageInput.value.split(' ');
   //console.log(words);
   //console.log(words.length);
-  const output = words.length + " words";
-  //console.log(output);
-
+  
   // call printData
-  printData(output, wordCount);
+  printData(words.length + " word(s)", wordCount);
 }
 
 function findWords() {
   // put your local variable for the empty array here
-  let targetWord = findWord.value;
-  //console.log(targetWord);
+  let foundWords = [];
+  // remainder of your code follows
   let arr = messageInput.value.split(' ');
   //console.log(arr);
-  // remainder of your code follows
-  let outputNum = 0;
   arr.forEach(item => {
-              //console.log(item);
-    if(item.toLowerCase() == targetWord) {
-      outputNum ++;
-      //console.log(item);
-      //console.log(outputNum);
+    if(item.toLowerCase() == findWord.value) {
+      foundWords.push(item);
     }
-    return outputNum;
-              }
-  );
-  const output = outputNum + " instances";
-  //console.log(output);
+  });
+  //console.log(foundWords);
   // call printData
-  printData(output, wordFoundCount);
+  printData(foundWords.length + " instance(s)", wordFoundCount);
 }
 
 // change param1 and param2 to identifiers that make sense
